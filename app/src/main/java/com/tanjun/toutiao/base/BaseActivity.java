@@ -1,6 +1,7 @@
 package com.tanjun.toutiao.base;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -32,7 +33,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onResume();
         int color = SettingUtil.getInstance().getColor();
         int drawable = Constant.ICONS_DRAWABLES[SettingUtil.getInstance().getCustomIconValue()];
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
+        }
     }
 
     /** toolbar */
