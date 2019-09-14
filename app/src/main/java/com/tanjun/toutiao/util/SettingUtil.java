@@ -4,8 +4,8 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
 
-import com.meiji.toutiao.InitApp;
-import com.meiji.toutiao.R;
+import com.tanjun.toutiao.MyApplication;
+import com.tanjun.toutiao.R;
 
 /**
  * Created by Meiji on 2017/2/20.
@@ -13,7 +13,7 @@ import com.meiji.toutiao.R;
 
 public class SettingUtil {
 
-    private SharedPreferences setting = PreferenceManager.getDefaultSharedPreferences(InitApp.AppContext);
+    private SharedPreferences setting = PreferenceManager.getDefaultSharedPreferences(MyApplication.appContext);
 
     public static SettingUtil getInstance() {
         return SettingsUtilInstance.instance;
@@ -23,14 +23,14 @@ public class SettingUtil {
      * 获取是否开启无图模式
      */
     public boolean getIsNoPhotoMode() {
-        return setting.getBoolean("switch_noPhotoMode", false) && NetWorkUtil.isMobileConnected(InitApp.AppContext);
+        return setting.getBoolean("switch_noPhotoMode", false) && NetWorkUtil.isMobileConnected(MyApplication.appContext);
     }
 
     /**
      * 获取主题颜色
      */
     public int getColor() {
-        int defaultColor = InitApp.AppContext.getResources().getColor(R.color.colorPrimary);
+        int defaultColor = MyApplication.appContext.getResources().getColor(R.color.colorPrimary);
         int color = setting.getInt("color", defaultColor);
         if ((color != 0) && Color.alpha(color) != 255) {
             return defaultColor;
@@ -139,7 +139,7 @@ public class SettingUtil {
      * 获取是否开启视频自动播放
      */
     public boolean getIsVideoAutoPlay() {
-        return setting.getBoolean("video_auto_play", false) && NetWorkUtil.isWifiConnected(InitApp.AppContext);
+        return setting.getBoolean("video_auto_play", false) && NetWorkUtil.isWifiConnected(MyApplication.appContext);
     }
 
     /**
