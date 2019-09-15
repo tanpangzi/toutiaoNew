@@ -1,5 +1,6 @@
 package com.tanjun.toutiao.view;
 
+import com.tanjun.commonlib.view.BaseView;
 import com.tanjun.toutiao.bean.LoginBean;
 
 /**
@@ -7,7 +8,7 @@ import com.tanjun.toutiao.bean.LoginBean;
  * 在这里定义布局上需要实现的工作
  * 如获取数据、显示数据等等
  */
-public interface LoginView extends BaseView, com.tanjun.commonlib.view.BaseView {
+public interface LoginView extends BaseView {
 
     /**
      * 获取账号
