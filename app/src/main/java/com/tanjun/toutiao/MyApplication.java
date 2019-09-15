@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.multidex.MultiDexApplication;
 
 import com.meiji.toutiao.SdkManager;
-import com.tanjun.toutiao.util.SettingUtil;
+import com.tanjun.commonlib.util.SettingUtil;
 
 import java.util.Calendar;
 

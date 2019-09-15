@@ -1,9 +1,10 @@
 package com.tanjun.toutiao.rxjava;
 
+import com.tanjun.commonlib.util.MyUtils;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-import com.tanjun.toutiao.util.MyUtils;
 
 /**
  * Created by tanjun

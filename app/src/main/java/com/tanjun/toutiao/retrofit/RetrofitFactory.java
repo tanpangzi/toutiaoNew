@@ -1,8 +1,8 @@
 package com.tanjun.toutiao.retrofit;
 
-import java.util.concurrent.TimeUnit;
+import com.tanjun.commonlib.util.MyUtils;
 
-import com.tanjun.toutiao.util.MyUtils;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
