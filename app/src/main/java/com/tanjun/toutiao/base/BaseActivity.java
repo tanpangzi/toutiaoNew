@@ -17,12 +17,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Lifecycle;
 
 import com.afollestad.materialdialogs.color.CircleView;
+import com.tanjun.commonlib.util.SettingUtil;
 import com.r0adkll.slidr.Slidr;
 import com.r0adkll.slidr.model.SlidrConfig;
 import com.r0adkll.slidr.model.SlidrInterface;
 import com.tanjun.toutiao.Constant;
-import com.tanjun.toutiao.R;
-import com.tanjun.toutiao.util.SettingUtil;
 import com.uber.autodispose.AutoDispose;
 import com.uber.autodispose.AutoDisposeConverter;
 import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider;
@@ -39,16 +38,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         this.iconType = SettingUtil.getInstance().getCustomIconValue();
         this.mContext = this;
         initSlidable();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        int color = SettingUtil.getInstance().getColor();
-        int drawable = Constant.ICONS_DRAWABLES[SettingUtil.getInstance().getCustomIconValue()];
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(color));
-        }
     }
 
     /** toolbar */
@@ -70,8 +59,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    protected void onResume() {
+        super.onResume();
+
         int color = SettingUtil.getInstance().getColor();
         /** 图标替换 */
         int drawable = Constant.ICONS_DRAWABLES[SettingUtil.getInstance().getCustomIconValue()];
@@ -82,6 +72,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         /** 修改主题颜色 */
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             getWindow().setStatusBarColor(CircleView.shiftColorDown(color));
+
             /** 最近任务栏上色 */
             ActivityManager.TaskDescription description = new ActivityManager.TaskDescription(
                     "头条", BitmapFactory.decodeResource(getResources(), drawable)
