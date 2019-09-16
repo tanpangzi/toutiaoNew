@@ -15,7 +15,7 @@ import com.tanjun.commonlib.base.BaseMvp;
 import com.tanjun.commonlib.presenter.BasePresenter;
 import com.tanjun.commonlib.view.BaseView;
 
-public abstract class BaseMvpFragment<M, V extends BaseView, P extends BasePresenter> extends Fragment implements BaseMvp<M, V, P> {
+ public abstract class BaseMvpFragment<M, V extends BaseView, P extends BasePresenter> extends Fragment implements BaseMvp<M, V, P> {
 
 
     protected P presenter;
