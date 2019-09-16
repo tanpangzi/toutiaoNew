@@ -4,8 +4,8 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
 
-import com.tanjun.toutiao.MyApplication;
-import com.tanjun.toutiao.R;
+import com.tanjun.commonlib.MyApplication;
+import com.tanjun.commonlib.R;
 
 /**
  * Created by Meiji on 2017/2/20.

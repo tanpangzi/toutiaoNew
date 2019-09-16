@@ -1,7 +1,8 @@
 package com.tanjun.commonlib.util;
 
-import com.meiji.toutiao.Constant;
-import com.meiji.toutiao.ErrorAction;
+
+import com.tanjun.commonlib.Constant;
+import com.tanjun.commonlib.ErrorAction;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

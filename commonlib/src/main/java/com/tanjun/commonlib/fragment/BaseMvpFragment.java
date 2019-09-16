@@ -15,8 +15,6 @@ import com.tanjun.commonlib.base.BaseMvp;
 import com.tanjun.commonlib.presenter.BasePresenter;
 import com.tanjun.commonlib.view.BaseView;
 
-import butterknife.ButterKnife;
-
 public abstract class BaseMvpFragment<M, V extends BaseView, P extends BasePresenter> extends Fragment implements BaseMvp<M, V, P> {
 
 
@@ -30,7 +28,7 @@ public abstract class BaseMvpFragment<M, V extends BaseView, P extends BasePrese
     @Override
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this, view);
+        //ButterKnife.bind(this, view);
         init();
     }
 

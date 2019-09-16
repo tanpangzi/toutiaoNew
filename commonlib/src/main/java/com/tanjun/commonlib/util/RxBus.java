@@ -1,6 +1,5 @@
 package com.tanjun.commonlib.util;
 
-import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,6 @@ import io.reactivex.subjects.Subject;
  * https://juejin.im/entry/58ff2e26a0bb9f0065d2c5f2
  */
 
-
 public class RxBus {
 
     private ConcurrentHashMap<Object, List<Subject>> subjectMapper = new ConcurrentHashMap<>();
@@ -23,18 +21,15 @@ public class RxBus {
 
     }
 
-    @NonNull
     public static RxBus getInstance() {
         return Holder.instance;
     }
 
-    @NonNull
-    public <T> Observable<T> register(@NonNull Class<T> clz) {
+    public <T> Observable<T> register(Class<T> clz) {
         return register(clz.getName());
     }
 
-    @NonNull
-    public <T> Observable<T> register(@NonNull Object tag) {
+    public <T> Observable<T> register(Object tag) {
         List<Subject> subjectList = subjectMapper.get(tag);
         if (null == subjectList) {
             subjectList = new ArrayList<>();
@@ -48,11 +43,11 @@ public class RxBus {
         return subject;
     }
 
-    public <T> void unregister(@NonNull Class<T> clz, @NonNull Observable observable) {
+    public <T> void unregister(Class<T> clz, Observable observable) {
         unregister(clz.getName(), observable);
     }
 
-    public void unregister(@NonNull Object tag, @NonNull Observable observable) {
+    public void unregister(Object tag, Observable observable) {
         List<Subject> subjects = subjectMapper.get(tag);
         if (null != subjects) {
             subjects.remove(observable);
@@ -63,11 +58,11 @@ public class RxBus {
         }
     }
 
-    public void post(@NonNull Object content) {
+    public void post(Object content) {
         post(content.getClass().getName(), content);
     }
 
-    public void post(@NonNull Object tag, @NonNull Object content) {
+    public void post(Object tag, Object content) {
         List<Subject> subjects = subjectMapper.get(tag);
         if (!subjects.isEmpty()) {
             for (Subject subject : subjects) {

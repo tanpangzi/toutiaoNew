@@ -1,8 +1,6 @@
 package com.tanjun.commonlib.util;
 
-import android.support.annotation.NonNull;
-
-import androidx.appcompat.util.DiffUtil;
+import androidx.recyclerview.widget.DiffUtil;
 
 import me.drakeet.multitype.Items;
 import me.drakeet.multitype.MultiTypeAdapter;
@@ -20,7 +18,7 @@ public class DiffCallback extends DiffUtil.Callback {
         this.mNewItems = mNewItems;
     }
 
-    public static void create(@NonNull Items oldList, @NonNull Items newList, @NonNull MultiTypeAdapter adapter) {
+    public static void create(Items oldList, Items newList, MultiTypeAdapter adapter) {
         DiffCallback diffCallback = new DiffCallback(oldList, newList);
         DiffUtil.DiffResult result = DiffUtil.calculateDiff(diffCallback, true);
         result.dispatchUpdatesTo(adapter);

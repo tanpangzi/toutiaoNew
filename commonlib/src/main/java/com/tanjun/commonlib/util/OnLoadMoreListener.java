@@ -2,8 +2,9 @@ package com.tanjun.commonlib.util;
 
 import android.util.Log;
 
-import androidx.appcompat.widget.LinearLayoutManager;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 /**
  * Created by Meiji on 2017/6/8.

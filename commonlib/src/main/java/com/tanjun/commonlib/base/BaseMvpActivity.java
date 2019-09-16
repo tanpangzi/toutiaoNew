@@ -7,8 +7,8 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.CheckResult;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cheers.logincomponent.R;
 import com.gyf.barlibrary.ImmersionBar;
+import com.tanjun.commonlib.R;
 import com.tanjun.commonlib.model.BaseModel;
 import com.tanjun.commonlib.presenter.BasePresenter;
 import com.tanjun.commonlib.view.BaseView;
@@ -19,8 +19,6 @@ import com.trello.rxlifecycle2.RxLifecycle;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.Observable;
 import io.reactivex.subjects.BehaviorSubject;
 
@@ -36,7 +34,7 @@ public abstract class BaseMvpActivity<M extends BaseModel, V extends BaseView, P
     //动态权限申请
     public RxPermissions rxPermissions;
     //解除绑定
-    public Unbinder unbinder;
+    //public Unbinder unbinder;
     //沉浸式框架
     protected ImmersionBar mImmersionBar;
     protected P presenter;
@@ -50,7 +48,7 @@ public abstract class BaseMvpActivity<M extends BaseModel, V extends BaseView, P
         initContentView(savedInstanceState);
         //沉浸式
         initImmersionBar();
-        unbinder = ButterKnife.bind(this);
+        //unbinder = ButterKnife.bind(this);
         presenter = createPresenter();
         if (presenter != null) {
             //将Model层注册到Presenter中
@@ -184,8 +182,8 @@ public abstract class BaseMvpActivity<M extends BaseModel, V extends BaseView, P
             mImmersionBar.destroy();  //在BaseActivity里销毁
         lifecycleSubject.onNext(ActivityEvent.DESTROY);
         super.onDestroy();
-        if (unbinder != null)
-            unbinder.unbind();
+        /*if (unbinder != null)
+            unbinder.unbind();*/
         if (presenter != null) {
             //Activity销毁时的调用，让具体实现BasePresenter中onViewDestroy()方法做出决定
             presenter.destroy();

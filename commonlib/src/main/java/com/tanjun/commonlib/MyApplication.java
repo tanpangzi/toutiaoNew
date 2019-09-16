@@ -1,8 +1,9 @@
-package com.tanjun.toutiao;
+package com.tanjun.commonlib;
 
 import android.content.Context;
 
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.multidex.BuildConfig;
 import androidx.multidex.MultiDexApplication;
 
 import com.meiji.toutiao.SdkManager;
