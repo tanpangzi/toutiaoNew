@@ -15,6 +15,12 @@ class SearchHistoryTable{
 
         val builder = StringBuilder()
             .append("create table if not exists")
-            .append("")
+            .append(ID)
+            .append(" text auto_increment, ")
+            .append(KEYWORD)
+            .append(" text primary key, ")
+            .append(TIME)
+            .append(" text")
+
     }
 }
